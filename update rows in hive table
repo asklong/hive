@@ -4,3 +4,8 @@ The table is bucketed into 4 buckets with “id” as the column
 The table is made to store the data in ORC file format
 The table property transactional is set to TRUE to make it a transactional table
 If you miss any of the above properties, you won’t be able to update a row in the Hive table.
+
+
+
+Quora, how to update Hive table.
+https://www.quora.com/How-we-can-update-data-in-a-hive-table
