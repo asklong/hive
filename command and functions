@@ -3,3 +3,6 @@ hive -e 'show partitions table;'
 
 //get the table information:
 hive -e 'describe extended my.image'
+
+hive date functions:
+http://dwgeek.com/hadoop-hive-date-functions-examples.html/
