@@ -1,0 +1,91 @@
+1. create a hive talbe from the avro data:
+CREATE EXTERNAL TABLE IF NOT EXISTS ${table_name}(
+    `survey_sk` bigint COMMENT 'survey session key',
+    `survey_id` bigint COMMENT 'survey id',
+    `survey_name` string COMMENT 'survey name',
+    `language_sk` bigint COMMENT 'language session key',
+    `gco_source_id` int COMMENT 'gco source id',
+    `created_ts` bigint COMMENT 'create timestamp',
+    `updated_ts` bigint COMMENT 'update timestamp',
+    `created_by` binary COMMENT 'create by who',
+    `updated_by` binary COMMENT 'update  by who'
+  )
+ROW FORMAT SERDE
+  'org.apache.hadoop.hive.serde2.avro.AvroSerDe'
+STORED AS INPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.avro.AvroContainerInputFormat'
+OUTPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.avro.AvroContainerOutputFormat'
+LOCATION
+  'you data location';
+
+2. change the hive table format:
+alter table prod_foundation_tables.your_table_name
+set serdeproperties('avro.schema.literal' = '{
+  "type" : "record",
+  "name" : "stg_fact_gco_hc_contact_us",
+  "namespace" : "prod_foundation_tables.stg_fact_gco_hc_contact_us",
+  "fields" : [ {
+    "name" : "page_tracking_id",
+    "type" : [ "null", "bytes" ],
+    "default" : null
+  }, {
+    "name" : "previous_page_tracking_id",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "previous_page_ctrl_id",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "member_sk",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "hc_product",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "date_sk",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "event_time",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "event_local_time",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "locale_language",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "action_option",
+    "type" : [ "null", "string" ],
+    "default" : null
+  }, {
+    "name" : "gco_source_id",
+    "type" : [ "null", "int" ],
+    "default" : null
+  }, {
+    "name" : "created_ts",
+    "type" : [ "null", "long" ],
+    "default" : null
+  }, {
+    "name" : "updated_ts",
+    "type" : [ "null", "long" ],
+    "default" : null
+  }, {
+    "name" : "created_by",
+    "type" : [ "null", "bytes" ],
+    "default" : null
+  }, {
+    "name" : "updated_by",
+    "type" : [ "null", "bytes" ],
+    "default" : null
+  } ]
+}');
+  
+
