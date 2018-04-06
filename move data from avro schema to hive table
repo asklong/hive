@@ -1,3 +1,4 @@
+Pay attention for the lower case. if you use upper case, the data will be read as NULL.
 1. create a hive talbe from the avro data:
 CREATE EXTERNAL TABLE IF NOT EXISTS ${table_name}(
     `survey_sk` bigint COMMENT 'survey session key',
