@@ -6,3 +6,6 @@ hive -e 'describe extended my.image'
 
 hive date functions:
 http://dwgeek.com/hadoop-hive-date-functions-examples.html/
+
+if you found your job run slowly, we could change job to different hadoop queue to lunch the job.
+set mapred.job.queue.name=YOU QUEUE NAME;
