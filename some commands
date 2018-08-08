@@ -9,3 +9,6 @@ dfs -cp /olddata/1.txt /newdata/
 
 4. set queue which the job been submitted to:
 set mapreduce.job.queuename=default;
+
+5. change dfs location for a table:
+ALTER TABLE table_name SET LOCATION "hdfs:/jsam/j1";
