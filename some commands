@@ -1,0 +1,8 @@
+1. get the table information:
+desc formatted table_name;
+
+2. copy data in hdfs:
+dfs -cp /olddata/1.txt /newdata/
+
+3. change table name:
+ alter table dim_gco_custclass rename to dim_gco_custclass2;
