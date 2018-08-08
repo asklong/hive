@@ -6,3 +6,6 @@ dfs -cp /olddata/1.txt /newdata/
 
 3. change table name:
  alter table dim_gco_custclass rename to dim_gco_custclass2;
+
+4. set queue which the job been submitted to:
+set mapreduce.job.queuename=default;
