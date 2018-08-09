@@ -19,3 +19,6 @@ hive -e 'show partitions table;'
 
 7. hive date functions:
 http://dwgeek.com/hadoop-hive-date-functions-examples.html/
+
+8. search tables in hive:
+show tables like '*answer*';
