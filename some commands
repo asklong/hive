@@ -1,4 +1,5 @@
 1. get the table information:
+in hive:
 desc formatted table_name;
 
 2. copy data in hdfs:
@@ -7,8 +8,14 @@ dfs -cp /olddata/1.txt /newdata/
 3. change table name:
  alter table dim_gco_custclass rename to dim_gco_custclass2;
 
-4. set queue which the job been submitted to:
-set mapreduce.job.queuename=default;
+4. if you found your job run slowly, we could change job to different hadoop queue to lunch the job.
+set mapred.job.queue.name=YOU QUEUE NAME;
 
 5. change dfs location for a table:
 ALTER TABLE table_name SET LOCATION "hdfs:/jsam/j1";
+
+6. show partation:
+hive -e 'show partitions table;'
+
+7. hive date functions:
+http://dwgeek.com/hadoop-hive-date-functions-examples.html/
