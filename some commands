@@ -22,3 +22,10 @@ http://dwgeek.com/hadoop-hive-date-functions-examples.html/
 
 8. search tables in hive:
 show tables like '*answer*';
+
+
+9. drop external table in hive
+You have to change the external to internal table before drop it:
+beeline> ALTER TABLE $tablename SET TBLPROPERTIES('EXTERNAL'='False'); // make the table as internal
+and then:
+beeline> drop table $tablename; //if you drop the table data will be dropped as well.
